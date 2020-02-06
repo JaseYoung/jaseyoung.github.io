@@ -1,11 +1,10 @@
 ---
-path: /setup/mac2
+path: /setup/macbook
 title: Laptop Setup
 date: '2020-01-10T16:20:00.000Z'
-description: ''
 ---
 
-This guide covers the basics of setting up a development environment on a new Mac. It's written as a reference for setting up my working environment or installing/configuring languages, libraries and apps that I use day to day.
+This guide helps to setup a macbook from fresh install, to being able to develop. The guide is aimed towards a test developer. install shell dependancies and setup tools for browser manipulation.
 
 ---
 
@@ -284,7 +283,3 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 ```
-
-find . -name serverless.yml -depth 2 -exec echo {} \; -exec grep runtime {} \;
-
-#Setup
