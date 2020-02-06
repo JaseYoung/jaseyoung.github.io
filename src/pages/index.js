@@ -29,6 +29,7 @@ const HomeIndex = ({
             scratch to starting development.
             <br /> To gists and useful tools.
           </p>
+          <br />
           <div>{Posts}</div>
         </section>
       </div>

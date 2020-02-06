@@ -33,5 +33,12 @@ module.exports = {
     `gatsby-transformer-remark`,
     'gatsby-plugin-sass',
     'gatsby-plugin-offline',
+    'gatsby-remark-prismjs',
+    {
+      resolve: 'gatsby-plugin-typography',
+      options: {
+        pathToConfigModule: 'src/components/typography',
+      },
+    },
   ],
 }

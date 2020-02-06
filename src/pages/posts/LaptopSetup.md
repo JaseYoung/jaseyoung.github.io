@@ -247,7 +247,7 @@ thefuck —alias | source
 
 ---
 
-# Ruby and Rubymine
+## Ruby and Rubymine
 
 ```bash
 \curl -sSL https://get.rvm.io | bash -s stable —ruby
@@ -259,7 +259,7 @@ bundle install
 
 ---
 
-# CircleCi CLI
+## CircleCi CLI
 
 The CircleCI CLI is a command line interface that leverages many of CircleCI’s advanced and powerful tools from the comfort of your terminal. Some of the things you can do with the CircleCI CLI include:
 
@@ -274,7 +274,7 @@ brew install circleci
 
 ---
 
-# Alias’s
+## Alias’s
 
 ```bash
 alias l="ls -la"       # List in long format, include dotfiles

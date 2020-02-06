@@ -28,23 +28,13 @@ export default function Template({
         >
           {frontmatter.date}
         </p>
-        {/*<div dangerouslySetInnerHTML={{ __html: post.tableOfContents }} />*/}
         <div dangerouslySetInnerHTML={{ __html: html }} />
-        {/*<code><pre>{JSON.stringify(post,null,4)}</pre></code>*/}
         <hr
           style={{
             marginBottom: rhythm(1),
           }}
         />
       </div>
-      {/* <div className="blog-post">
-        <h1>{frontmatter.title}</h1>
-        <h2>{frontmatter.date}</h2>
-        <div
-          className="blog-post-content"
-          dangerouslySetInnerHTML={{ __html: html }}
-        />
-      </div> */}
     </div>
   )
 }
