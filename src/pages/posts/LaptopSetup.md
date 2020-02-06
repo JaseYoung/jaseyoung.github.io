@@ -1,5 +1,5 @@
 ---
-path: /setup/mac2
+path: /setup/macbook
 title: Laptop Setup
 date: '2020-01-10T16:20:00.000Z'
 ---
