@@ -1,0 +1,176 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="generator" content="Gatsby 2.19.12"/><title data-react-helmet="true"></title><link rel="icon" href="/icons/icon-48x48.png?v=edf3d310d67f8284a562bc3a58c3e761"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#663399"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=edf3d310d67f8284a562bc3a58c3e761"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=edf3d310d67f8284a562bc3a58c3e761"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=edf3d310d67f8284a562bc3a58c3e761"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=edf3d310d67f8284a562bc3a58c3e761"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=edf3d310d67f8284a562bc3a58c3e761"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=edf3d310d67f8284a562bc3a58c3e761"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=edf3d310d67f8284a562bc3a58c3e761"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=edf3d310d67f8284a562bc3a58c3e761"/><link as="script" rel="preload" href="/component---src-templates-blog-template-js-440b49914e4b985074ff.js"/><link as="script" rel="preload" href="/commons-f0d8b22b85b4a30fc7e0.js"/><link as="script" rel="preload" href="/app-74266dfbec923acabefc.js"/><link as="script" rel="preload" href="/webpack-runtime-298c1d35fa91651327b3.js"/><link as="fetch" rel="preload" href="/page-data/setup/macbook/page-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" role="group" id="gatsby-focus-wrapper"><div class="blog-post-container"><div class="blog-post"><h1>Laptop Setup</h1><h2>January 10, 2020</h2><div class="blog-post-content"><p>This guide helps to setup a macbook from fresh install, to being able to develop. The guide is aimed towards a test developer. install shell dependancies and setup tools for browser manipulation.</p>
+<hr>
+<h2>Xcode</h2>
+<p>xcode-select —install</p>
+<h2>Homebrew</h2>
+<pre><code class="language-bash">/usr/bin/ruby -e “$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)”
+</code></pre>
+<pre><code class="language-bash">brew install \
+geckodriver \
+awscli \
+circleci \
+cmake \
+git \
+thefuck \
+zsh \
+</code></pre>
+<pre><code class="language-bash">brew tap homebrew/cask-cask
+</code></pre>
+<pre><code class="language-bash">brew cask install \
+chromedriver \
+1password \
+alfred \
+brave-browser \
+firefox \
+google-chrome \
+iterm2 \
+spectacle \
+visual-studio-code \
+rubymine \
+fork \
+spotify \
+mtmr \
+</code></pre>
+<hr>
+<h2>Fonts</h2>
+<p>Install <em>Dank Mono</em> latest <a href="https://dank.sh/releases/">release</a></p>
+<hr>
+<h2>iTerm2</h2>
+<p>Change Preferences</p>
+<ul>
+<li>Profiles > General > Working Directory > Check <em>Reuse previous session’s directory</em></li>
+<li>Colors > Color Presets > Import… > <em>Find iterm2-night-owl</em> ( <a href="https://github.com/nickcernis/iterm2-night-owl">Night Owl theme</a> )</li>
+<li>Text > Font > Change Font > <em>Find Dank Mono</em></li>
+<li>Appearance > Tabs > Check <em>Strech tabs to fill bar</em></li>
+</ul>
+<hr>
+<h2>ZSH shell</h2>
+<p>Installation if you already haven’t</p>
+<pre><code class="language-bash">brew install zsh
+</code></pre>
+<p>Once installed we need to make it the default shell first we add it to the accepted shells</p>
+<pre><code class="language-bash">echo “/usr/local/bin/zsh” | sudo tee -a /etc/shells
+</code></pre>
+<p>then we can make <em>zsh</em> our default shell</p>
+<pre><code class="language-bash">chsh -s /usr/local/bin/zsh
+</code></pre>
+<h3>Oh My Zsh</h3>
+<pre><code class="language-bash">sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+</code></pre>
+<h3>Theme</h3>
+<p>Darcula</p>
+<p><a href="https://iterm2colorschemes.com/">Iterm Themes - Color Schemes and Themes for Iterm2</a></p>
+<h2>Git</h2>
+<p>Git huh? What a tool</p>
+<pre><code>brew install git
+</code></pre>
+<p>Next if you’ve got one copy over .gitconfig; no? Then add your user name and email to it by doing the following</p>
+<pre><code>git config —global user.name “Your Name Here”
+
+git config —global user.email “your_email@youremail.com”
+</code></pre>
+<p>Additional configuration</p>
+<pre><code># Make sure your credential helper is configured, to avoid being asked for your password all the time
+
+git config —global credential.helper osxkeychain
+
+# disable fastforward in merging
+git config —global —add merge.ff false
+</code></pre>
+<hr>
+<h2>SSH Config for Github</h2>
+<p>The next part is straight from the offical documentation.</p>
+<h3>CHECK FOR EXISTING SSH KEYS</h3>
+<p>First, we need to check for existing SSH keys on your computer. We do this by running:</p>
+<pre><code># Lists the files in your .ssh directory, if they exist
+ls -al ~/.ssh
+</code></pre>
+<p>Check the directory listing to see if you have files named either id<em>rsa.pub or id</em>dsa.pub. If you don’t have either of those files then read on, otherwise skip the next section.</p>
+<h3>GENERATE A NEW SSH KEY</h3>
+<p>If you don’t have an SSH key you need to generate one. To do that you need to run the commands below, and make sure to substitute the placeholder with your email. The default settings are preferred, so when you’re asked to “enter a file in which to save the key,”” just press Enter to continue.</p>
+<pre><code># Creates a new ssh key, using the provided email as a label
+ssh-keygen -t rsa -C “your_email@example.com”
+</code></pre>
+<h3>ADD YOUR SSH KEY TO THE SSH-AGENT</h3>
+<p>Run the following commands to add your SSH key to the ssh-agent.</p>
+<pre><code>eval “$(ssh-agent -s)”
+</code></pre>
+<p>Next you will need to modify your ~_.ssh_config file to automatically load keys into the ssh-agent and store passphrases in your keychain:</p>
+<pre><code>Host *
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/id_rsa
+</code></pre>
+<p>No matter what operating system version you run you need to run this command to complete this step:</p>
+<pre><code>ssh-add -K ~/.ssh/id_rsa
+</code></pre>
+<h3>ADDING A NEW SSH KEY TO YOUR GITHUB ACCOUNT</h3>
+<p>The last step is to let GitHub know about your SSH key. Run this command to copy your key to your clipboard:</p>
+<pre><code>pbcopy &#x3C; ~/.ssh/id_rsa.pub
+</code></pre>
+<p>Then go to GitHub and input your new SSH key. Paste your key in the “Key” textbox and pick a name that represents the computer you’re currently using.</p>
+<hr>
+<h2>Node.js</h2>
+<p>Node.js is a JavaScript runtime built on Chrome’s V8 JavaScript engine. Installing <em>node</em> with <em>brew</em> is easy, it comes with <em>npm</em> as the default package manager. Where as I prefer to use <em>yarn</em> as a package manager; for working with monorepos and such.</p>
+<p>For managing the version of node installed I use <em>n</em> it makes switching versions really easy.</p>
+<pre><code class="language-bash"># Install node with brew
+brew install node
+
+# Install yarn with npm (yep.)
+npm install -g yarn
+
+# Install n with yarn
+yarn global add n
+
+# Install the latest *long term support* with n
+sudo n lts
+</code></pre>
+<hr>
+<h2>THEFUCK</h2>
+<p>Installation</p>
+<pre><code class="language-bash">brew install thefuck
+</code></pre>
+<pre><code class="language-bash">thefuck —alias | source
+</code></pre>
+<hr>
+<h2>Visual Studio Code</h2>
+<h3>EXTENSIONS</h3>
+<ul>
+<li><a href="https://draculatheme.com/visual-studio-code/">Dracula Theme</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme">Material Icon Theme by Philipp Kief</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint">ESLint by Dirk Baeumer</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode">Prettier by Esben Petersen</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=mattconde.insert-relative-path">Insert relative path by MConde</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=flowtype.flow-for-vscode">Flow Language Support by flowtype</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=ericadamski.carbon-now-sh">carbon-now-sh by Eric Adamski</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=quicktype.quicktype">Paste JSON as Code by quicktype</a></li>
+</ul>
+<hr>
+<h1>Ruby and Rubymine</h1>
+<pre><code class="language-bash">\curl -sSL https://get.rvm.io | bash -s stable —ruby
+source /Users/gbjajoma/.rvm/scripts/rvm
+rvm use 2.6.3 --default
+gem install bundler
+bundle install
+</code></pre>
+<hr>
+<h1>CircleCi CLI</h1>
+<p>The CircleCI CLI is a command line interface that leverages many of CircleCI’s advanced and powerful tools from the comfort of your terminal. Some of the things you can do with the CircleCI CLI include:</p>
+<ul>
+<li>Debug and validate your CI config</li>
+<li>Run jobs locally</li>
+<li>Query CircleCI’s API</li>
+<li>Create, publish, view and manage Orbs</li>
+</ul>
+<pre><code class="language-bash">brew install circleci
+</code></pre>
+<hr>
+<h1>Alias’s</h1>
+<pre><code class="language-bash">alias l="ls -la"       # List in long format, include dotfiles
+alias ld="ls -ld */"   # List in long format, only directories
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+</code></pre>
+<p>find . -name serverless.yml -depth 2 -exec echo {} ; -exec grep runtime {} ;</p>
+<h1>Setup</h1></div></div></div></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/setup/macbook";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-74266dfbec923acabefc.js"],"component---node-modules-gatsby-plugin-offline-app-shell-js":["/component---node-modules-gatsby-plugin-offline-app-shell-js-cf2fd0f92da7499f18b1.js"],"component---src-templates-blog-template-js":["/component---src-templates-blog-template-js-440b49914e4b985074ff.js"],"component---src-pages-404-js":["/component---src-pages-404-js-e8a2474219022a125463.js"],"component---src-pages-index-js":["/component---src-pages-index-js-b6c80973d4591d88b88a.js"]};/*]]>*/</script><script src="/webpack-runtime-298c1d35fa91651327b3.js" async=""></script><script src="/app-74266dfbec923acabefc.js" async=""></script><script src="/commons-f0d8b22b85b4a30fc7e0.js" async=""></script><script src="/component---src-templates-blog-template-js-440b49914e4b985074ff.js" async=""></script></body></html>
