@@ -283,7 +283,3 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 ```
-
-find . -name serverless.yml -depth 2 -exec echo {} \; -exec grep runtime {} \;
-
-#Setup
